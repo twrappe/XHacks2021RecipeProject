@@ -1,7 +1,9 @@
 import React, {useState} from "react";
 import {Modal, Button} from "react-bootstrap";
-export default function Home() {
-  const [show, setShow] = useState(false);
+import TextInput from "../components/TextInput.jsx";
+
+export default function LoginModal() {
+  const [show, setShow] = useState(true);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -14,15 +16,17 @@ export default function Home() {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Login / Signup to view your saved recipes</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Body>
+          <p>Email:</p>
+          <TextInput textName="email" description="Enter email address"/>
+          <p>Password:</p>
+          <TextInput textName="pass" description="Enter password"/>
+        </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
           <Button variant="primary" onClick={handleClose}>
-            Save Changes
+            Signup / Login
           </Button>
         </Modal.Footer>
       </Modal>
