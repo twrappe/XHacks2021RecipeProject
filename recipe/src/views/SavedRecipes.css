@@ -5,36 +5,40 @@
   margin: 0;
 }
 
-.wrapper{
-  background: url(img/savedrecipes_bg.png);
+.my-recipes-title {
+  background-image: url(./img/home_bg.jpg);
   background-size: cover;
-  background-attachment: fixed;
-  height: 100vh;
+  height: 20vh;
+  padding: 5%;
+  margin-bottom: 5%;
+  color: white;
+}
+
+.my-recipes {
+  padding: 0 5%;
 }
 
 .navbar{
   position: fixed;
-  background: rgba(255, 255, 255, 0.37);
+  background: yellowgreen;
+  padding: 35px;
   height: 50px;
-  width: 100%
+  width: 100%;
 }
 
 .navbar ul{
   float: left;
-  margin-left: 20px;
 }
 
 .navbar ul li{
   list-style: none;
-  margin: 0 10px;
   display: inline-block;
-  line-height: 50px;
 }
 
 .navbar ul li a{
   text-decoration: none;
   color: white;
-  font-size: 15px;
+  font-size: 1rem;
   padding: 6px;
   font-family: "Roboto", sans-serif;
   transition: 0.5s;
@@ -42,22 +46,7 @@
 
 .navbar ul li a.active,
 .navbar ul li a:hover{
-  background: red;
+  background: rgb(118, 143, 69);
   border-radius:3px;
 }
 
-.recipeimg{
-  position: absolute;
-  margin-top: 100px;
-}
-.recipeimg ul li{
-  list-style: none;
-  margin-top: 20px;
-  margin-left: 100px;
-
-}
-
-.recipeimg ul li a img{
-  height: 20%;
-  width: 20%;
-}

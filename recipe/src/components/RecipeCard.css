@@ -1,0 +1,20 @@
+.card {
+    background: #fff;
+    border-radius: 6rem;
+    box-shadow: 0 2px 5px #ccc;
+    width: 13rem;
+    height: 15rem;
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+    float: left;
+}
+
+.title-container {
+    border-bottom-left-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background-color: yellowgreen;
+    padding: 5%
+}
