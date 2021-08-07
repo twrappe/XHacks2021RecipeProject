@@ -1,0 +1,63 @@
+@import url(‘https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap’);
+
+*{
+  padding: 0;
+  margin: 0;
+}
+
+.wrapper{
+  background: url(img/savedrecipes_bg.png);
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
+}
+
+.navbar{
+  position: fixed;
+  background: rgba(255, 255, 255, 0.37);
+  height: 50px;
+  width: 100%
+}
+
+.navbar ul{
+  float: left;
+  margin-left: 20px;
+}
+
+.navbar ul li{
+  list-style: none;
+  margin: 0 10px;
+  display: inline-block;
+  line-height: 50px;
+}
+
+.navbar ul li a{
+  text-decoration: none;
+  color: white;
+  font-size: 15px;
+  padding: 6px;
+  font-family: "Roboto", sans-serif;
+  transition: 0.5s;
+}
+
+.navbar ul li a.active,
+.navbar ul li a:hover{
+  background: red;
+  border-radius:3px;
+}
+
+.recipeimg{
+  position: absolute;
+  margin-top: 100px;
+}
+.recipeimg ul li{
+  list-style: none;
+  margin-top: 20px;
+  margin-left: 100px;
+
+}
+
+.recipeimg ul li a img{
+  height: 20%;
+  width: 20%;
+}
