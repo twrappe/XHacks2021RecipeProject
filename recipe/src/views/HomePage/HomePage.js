@@ -1,9 +1,12 @@
-import {React} from 'react';
+import {React, useState}  from 'react';
 import './HomePage.css';
 import SearchBar from "../../components/SearchBar"
 import RecipeCard from "../../components/RecipeCard"
 import meal1 from '../img/1_meal.jpg';
+import LoginModal from '../LoginModal';
+
 export default function HomePage() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   
   const dummyRecipes = [{
     name: "A Recipe",
@@ -35,6 +38,7 @@ export default function HomePage() {
         {/*fonts*/}
         <link rel="stylesheet" href="./HomePage.css" />
         <div className="wrapper">
+        <LoginModal />
           <div className="title">
             <h1>App</h1>
             <h2><em>Creating the best food, the best way.</em></h2>
