@@ -1,0 +1,33 @@
+/* @import url(‘https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap’); */
+
+.wrapper {
+  background-image: url(../img/home_bg.jpg);
+  background-size: cover;
+  height: 50vh;
+  width: auto;
+  padding: 5%;
+  margin-bottom: 5%;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+}
+
+.title h2{
+  color: yellowgreen;
+}
+
+.suggestion {
+  margin-bottom: 2rem;
+}
+
+.cta {
+  margin-top: 5%;
+  padding: 8% 10%;
+}
+
+.diets {
+  padding: 0 5%;
+}
+
+/*
+pink: rgba(248, 124, 190, 0.59);
+*/
