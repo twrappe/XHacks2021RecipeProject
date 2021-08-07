@@ -1,6 +1,6 @@
 import {React} from 'react';
 import './SavedRecipes.css';
-import SearchBar from '../components/SearchBar';
+import Search from '../components/Search';
 import RecipeCard from "../components/RecipeCard"
 import meal1 from './img/1_meal.jpg';
 
@@ -50,12 +50,12 @@ export default function SavedRecipes(){
         <link rel="stylesheet" href="./SavedRecipes.css" />
         <div className="my-recipes-title">
           <h1>My Saved Recipes</h1>
-          <SearchBar description="Search my recipes"/>
+          <Search description="Search my recipes"/>
           </div>
           <div className="my-recipes">
           {dummyRecipes.map((recipe, i) => {
             return (
-              <RecipeCard 
+              <RecipeCard
               recipeName = {recipe.name}
               recipeImage = {recipe.image}
               />

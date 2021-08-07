@@ -1,7 +1,7 @@
 import React from 'react';
 import "./RecipeCard.css";
 
-function SearchBar({recipeName, recipeImage}) {
+function RecipeCard({recipeName, recipeImage}) {
     return (
         <div className="card">
             <link rel="stylesheet" href="./RecipeCard.css" />
@@ -13,4 +13,4 @@ function SearchBar({recipeName, recipeImage}) {
     )
 }
 
-export default SearchBar;
+export default RecipeCard;

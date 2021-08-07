@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import HomePage from "./views/HomePage/HomePage.js";
 import SavedRecipes from "./views/SavedRecipes";
-import {Navbar} from 'react-bootstrap';
+import Navbar from './components/Navbar';
 
 export default function App() {
   return (
