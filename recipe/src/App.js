@@ -5,46 +5,30 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import Home from "./views/Home";
+import HomePage from "./views/HomePage";
+import SavedRecipes from "./views/SavedRecipes";
+import {Navbar} from 'react-bootstrap';
 export default function App() {
   return (
     <Router>
+    <div>
+    <Navbar bg="dark">
+      <ul>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/saved">Saved Recipes</Link></li>
+      </ul>
+    </Navbar>
       <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Login</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/users">Users</Link>
-            </li>
-          </ul>
-        </nav>
-
         <Switch>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/users">
-            <Users />
-          </Route>
-          <Route path="/">
-            <Home/>
+         <Route exact path="/">
+            <HomePage/>
+         </Route>
+          <Route path="/saved">
+            <SavedRecipes/>
           </Route>
         </Switch>
       </div>
+    </div>
     </Router>
   );
-}
-
-
-function About() {
-  return <h2>About</h2>;
-}
-
-function Users() {
-  return <h2>Users</h2>;
 }
