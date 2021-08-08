@@ -1,24 +1,7 @@
-from flask import Flask,render_template,request,redirect
-from flask_sqlalchemy import SQLAlchemy
-from flask_login import login_required, current_user, login_user, logout_user, LoginManager, UserMixin
-from werkzeug.security import generate_password_hash, check_password_hash
-
+from model import *
+from flask import jsonify
 login = LoginManager()
-db = SQLAlchemy()
- 
-class UserModel(UserMixin, db.Model):
-    __tablename__ = 'users'
- 
-    id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(80), unique=True)
-    username = db.Column(db.String(100))
-    password_hash = db.Column(db.String())
- 
-    def set_password(self,password):
-        self.password_hash = generate_password_hash(password)
-     
-    def check_password(self,password):
-        return check_password_hash(self.password_hash,password)
+
  
  
 @login.user_loader
@@ -51,11 +34,8 @@ def blog():
     return render_template('myrecipes.html')
  
  
-@app.route('/login', methods = ['POST', 'GET'])
+@app.route('/login', methods = ['POST'])
 def login():
-    if current_user.is_authenticated:
-        return redirect('/myrecipes')
-     
     if request.method == 'POST':
         email = request.form['email']
         password=request.form['password']
@@ -63,14 +43,11 @@ def login():
         if user is not None and user.check_password(password):
             login_user(user)
             return redirect('/myrecipes')
-     
-    return render_template('login.html')
+    else:
+        return jsonify(error="bad request"), 400
  
-@app.route('/register', methods=['POST', 'GET'])
+@app.route('/register', methods=['POST'])
 def register():
-    if current_user.is_authenticated:
-        return redirect('/myrecipes')
-     
     if request.method == 'POST':
         email = request.form['email']
         username = request.form['username']
@@ -84,7 +61,6 @@ def register():
         db.session.add(user)
         db.session.commit()
         return redirect('/login')
-    return render_template('register.html')
  
  
 @app.route('/logout')

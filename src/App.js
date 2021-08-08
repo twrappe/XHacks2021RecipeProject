@@ -5,7 +5,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import HomePage from "./views/HomePage/HomePage.js";
+import HomePage from "./views/HomePage/HomePage";
 import SavedRecipes from "./views/SavedRecipes";
 import {Navbar} from 'react-bootstrap';
 
