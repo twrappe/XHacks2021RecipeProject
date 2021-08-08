@@ -6,7 +6,8 @@ import {
   Link
 } from "react-router-dom";
 import HomePage from "./views/HomePage/HomePage";
-import SavedRecipes from "./views/SavedRecipes";
+import SavedRecipes from "./views//SavedRecipes/SavedRecipes";
+import RecipePage from "./views/RecipePage/RecipePage";
 import {Navbar} from 'react-bootstrap';
 
 export default function App() {
@@ -15,14 +16,14 @@ export default function App() {
     <div>
     <Navbar>
       <ul>
-        <li><Link to="/">Home</Link></li>
+        <li><Link to="/">Recipe</Link></li>
         <li><Link to="/saved">Saved Recipes</Link></li>
       </ul>
     </Navbar>
       <div>
         <Switch>
          <Route exact path="/">
-            <HomePage/>
+            <RecipePage />
          </Route>
           <Route path="/saved">
             <SavedRecipes/>

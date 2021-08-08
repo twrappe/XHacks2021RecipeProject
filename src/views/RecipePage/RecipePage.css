@@ -1,0 +1,41 @@
+* {
+    font-family: "Roboto", sans-serif;
+}
+
+ h1 {
+     margin-right: auto;
+ }
+
+.recipe-header {
+    position: relative;
+    height: 75vh;
+    overflow: hidden;
+}
+
+.recipe-header img {
+    object-fit: cover;
+    width: 100%;
+}
+
+.recipe-title {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 2rem;
+    left: 5%;
+    right: 5%;
+}
+
+.recipe-content, .instructions {
+    padding: 2.5% 5%;
+}
+
+.ingredients {
+    background-color: yellowgreen;
+    padding: 2.5% 5%;
+    margin-bottom: 2.5%;
+}
+
+ h4 {
+    margin-bottom: 5rem;
+}
