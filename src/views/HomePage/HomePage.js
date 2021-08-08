@@ -3,7 +3,7 @@ import './HomePage.css';
 import Search from "../../components/Search";
 import RecipeCard from "../../components/RecipeCard";
 import meal1 from '../img/1_meal.jpg';
-import LoginModal from '../LoginModal';
+import LoginModal from '../../components/LoginModal';
 import axios from 'axios';
 import React from 'react';
 export default function HomePage() {
@@ -49,11 +49,6 @@ const filterPosts = (posts, query) => {
     const filteredPosts = filterPosts(posts, searchQuery);
   return(
       <div>
-        {/*fonts*/}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet" />
-        {/*fonts*/}
         <link rel="stylesheet" href="./HomePage.css" />
         <div className="wrapper">
           <LoginModal />

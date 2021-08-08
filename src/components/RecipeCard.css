@@ -9,6 +9,11 @@
     float: left;
 }
 
+img {
+    object-fit: cover;
+    width: 100%;
+}
+
 .title-container {
     border-bottom-left-radius: 0.25rem;
     border-bottom-right-radius: 0.25rem;
