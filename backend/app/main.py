@@ -9,7 +9,7 @@ def load_user(id):
     return UserModel.query.get(int(id))
 
 app = Flask(__name__)
-cors = CORS(app)
+cors = CORS(app, resources={r"/*": {"origins": "*"}})
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///username_pwd.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 #db = SQLAlchemy(app)
@@ -35,15 +35,14 @@ def blog():
  
 @app.route('/login', methods = ['POST'])
 def login():
-    if request.method == 'POST':
-        email = request.form['email']
-        password=request.form['password']
+        new_user= json.load(request.data)
+        email = new_user.get('email')
+        password = new_/user.get('password')
         user = UserModel.query.filter_by(email = email).first()
         if user is not None and user.check_password(password):
-            login_user(user)
-            return redirect('/myrecipes')
-    else:
-        return jsonify(error="bad request"), 400
+            return jsonify(success=True), 200
+        else:
+            return jsonify(error="Not a valid user"), 401
  
 @app.route('/register', methods=['POST'])
 def register():

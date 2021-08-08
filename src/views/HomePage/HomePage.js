@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import './HomePage.css';
 import Search from "../../components/Search";
+import SearchBar from "../../components/SearchBar"
 import RecipeCard from "../../components/RecipeCard";
 
 import LoginModal from '../LoginModal';
@@ -43,11 +44,11 @@ const filterRecipe = (recipes, query) => {
               <h1>App</h1>
               <h2><em>Creating the best food, the best way.</em></h2>
             </div>
-            <div>
-              <h3> What are you cooking today?</h3>
-              <Search searchQuery={searchQuery}
-                setSearchQuery={setSearchQuery}/>
-            </div>
+        </div>
+        <div>
+          <h3> What are you cooking today?</h3>
+          <Search searchQuery={searchQuery}
+            setSearchQuery={setSearchQuery}/>
         </div>
         <div className="diets">
           <h3 className= "suggestion">Suggested recipes:</h3>

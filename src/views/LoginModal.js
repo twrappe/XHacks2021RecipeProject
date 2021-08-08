@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {Modal, Button, Form} from "react-bootstrap";
 import TextInput from "../components/TextInput.jsx";
-
+import axios from 'axios';
 export default function LoginModal() {
   const [show, setShow] = useState(true);
 
@@ -9,13 +9,23 @@ export default function LoginModal() {
   const handleShow = () => setShow(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   function validateForm() {
     return email.length > 0 && password.length > 0;
   }
-
-  function handleSubmit(event) {
-    event.preventDefault();
+  function handleSubmit(e) {
+  e.preventDefault()
+    const user = {
+      email: email,
+      password: password
+    };
+    axios.post('http://localhost:5000/login', user)
+    .then((res) => {
+                console.log(res.data)
+            }).catch((error) => {
+                console.log(error)
+            });
+    setEmail('')
+    setPassword('')
   }
   return (
     <>
@@ -48,13 +58,13 @@ export default function LoginModal() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </Form.Group>
-
+          <Button block size="lg" type="submit" disabled={!validateForm()}>
+            Login/Signup
+          </Button>
         </Form>
         </Modal.Body>
         <Modal.Footer>
-        <Button block size="lg" type="submit" disabled={!validateForm()}>
-          Login/Signup
-        </Button>
+
         </Modal.Footer>
       </Modal>
     </>
