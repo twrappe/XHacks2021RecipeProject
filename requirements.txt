@@ -10,7 +10,6 @@ Jinja2==2.11.3
 MarkupSafe==1.1.1
 numpy==1.16.2
 pathlib2==2.3.6
-pygame==1.9.6
 pyserial==2.7
 python-dateutil==2.8.2
 pytz==2021.1
