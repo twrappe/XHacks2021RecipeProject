@@ -1,12 +1,14 @@
-import {React, useState} from 'react';
-import "./RecipePage.css";
-import TurnedIn from "@material-ui/icons/TurnedIn";
-import Edit from "@material-ui/icons/Edit";
-import CounterInput from 'react-bootstrap-counter';
-import Banner from "react-js-banner";
+import {React, useEffect} from 'react';
+import "./EditRecipe.css";
+import Done from "@material-ui/icons/Done";
+import Quill from "quill";
+import 'quill/dist/quill.snow.css';
 
-function RecipePage({visibility = 'public'}) {
-
+function EditRecipe() {
+    useEffect(() => {
+        new Quill("#edit-ingredients", { theme: "snow" })
+        new Quill("#edit-instructions", { theme: "snow" })
+    }, [])
     const exampleRecipe = {
         name: "No Bake Cheesecake",
         image: 'https://asset.kompas.com/crops/fdmJOqFjziFBVEBiwwl3jzbrXzQ=/4x0:1000x664/750x500/data/photo/2020/08/24/5f43475eb10af.jpg',
@@ -63,68 +65,31 @@ function RecipePage({visibility = 'public'}) {
         ]
     }
 
-    const [serving, setServing] = useState(exampleRecipe.defaultServing);
-    const [isVisible, setIsVisible] = useState(false)
-    function handleClick() {
-        if (visibility === 'public') {
-            setIsVisible(true);
-        } else {
-
-        }
-    }
-
     return (
         <div className="recipe-page">
-            <link rel="stylesheet" href="./RecipePage.css" />
+            <link rel="stylesheet" href="./EditRecipe.css" />
             <div className="recipe-header">
                 <img alt={exampleRecipe.name} src={exampleRecipe.image}/>
                 <div className="recipe-title">
                     <h1>{exampleRecipe.name}</h1>
-                    <button onClick={() => handleClick()}>
-                        {visibility === 'public' ? <TurnedIn fontSize="large"/> : <Edit fontSize="large"/>}
-                    </button>
+                    <Done fontSize = "large"/>
                 </div>
             </div>
-            {isVisible && (
-                <Banner title="Recipe saved to My Recipes" 
-                    showBanner={isVisible} 
-                    visibleTime={2000}
-                    css={{color: "#fff", backgroundColor: "yellowgreen", fontFamily: "Roboto", fontSize: 16 }}
-                    />
-            )}
             <div className="recipe-content">
                 <div>
-                        <p>servings shown for: </p>
-                        <CounterInput max={40} min={0} value={serving} onChange={(val) => setServing(val)}/>
+                        <p>servings shown for: {exampleRecipe.defaultServing}</p>
                 </div>
                 <div className="ingredients">
                         <h4>Ingredients</h4>
-                        <ul>
-                        {exampleRecipe.ingredients.map((ing) => {
-                            var calcServing = (ing.amount * (serving / exampleRecipe.defaultServing)).toPrecision(2)
-                            return (
-                                <li>
-                                    <p>{calcServing} {ing.measurement} of {ing.type}</p>
-                                </li>
-                            )
-                        })}
-                        </ul>
+                        <div id="edit-ingredients"></div>
                 </div>
                 <div className="instructions">
                     <h4>Instructions</h4>
-                    <ol>
-                        {exampleRecipe.instructions.map((ins) => {
-                            return (
-                                <li>
-                                    <p>{ins}</p>
-                                </li>
-                            )
-                        })}
-                        </ol>
+                    <div id="edit-instructions"></div>
                 </div>
             </div>
         </div>
     )
 }
 
-export default RecipePage;
+export default EditRecipe;
