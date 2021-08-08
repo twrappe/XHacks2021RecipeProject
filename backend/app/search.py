@@ -3,7 +3,7 @@ from flask import jsonify
 from flask_cors import CORS
 from sqlalchemy import exc
 app = Flask(__name__)
-cors = CORS(app)
+#cors = CORS(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///username_pwd.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 #db = SQLAlchemy(app)
