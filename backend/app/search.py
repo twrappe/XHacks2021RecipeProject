@@ -1,16 +1,8 @@
+import os
 from model import *
 from flask import jsonify
-from flask_cors import CORS
-from sqlalchemy import exc
-app = Flask(__name__)
-#cors = CORS(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///username_pwd.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
-#db = SQLAlchemy(app)
-app.secret_key= "asdfghjklwertyuifkyou"
-db.init_app(app)
-login.init_app(app)
-login.login_view = 'login'
+
+from sqlalchemy import exc, delete
 
 
 @app.route('/search',methods = ['POST', 'GET'])
@@ -20,20 +12,24 @@ def searching():
         results = []
         for recipe in recipes:
             result = {}
-            result["rid"] = recipe.rid
+            result["image"] = recipe.image
             result["name"] = recipe.name
             results.append(result)
         return jsonify(results)
 @app.route('/add', methods = ['GET', 'POST'])
 def add_recipe():
     if request.method == "GET":
-        name = "Cookie"
-        rid = 5
-        recipe = RecipeModel(rid, name)
+        name = "Cookies"
+        image = "../img/4_pastry.jpg"
+        recipe = RecipeModel(3, 1, 1, name, image)
         try:
             db.session.add(recipe)
             db.session.commit()
         except exc.IntegrityError:
             db.session.rollback()
         return jsonify(success=True)
+@app.route('/clear', methods=['GET'])
+def clear_db():
+    db.create_all()
+    return jsonify(success=True)
 app.run(debug=True)

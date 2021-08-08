@@ -26,8 +26,6 @@ def home():
     return '''
     <h2>Hello</h2><a href="/myrecipes">Click here to go to my recipes</a>'''     
 
-
-
 @app.route('/myrecipes')
 @login_required
 def blog():

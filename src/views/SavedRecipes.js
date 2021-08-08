@@ -55,7 +55,7 @@ export default function SavedRecipes(){
           <div className="my-recipes">
           {dummyRecipes.map((recipe, i) => {
             return (
-              <RecipeCard 
+              <RecipeCard
               recipeName = {recipe.name}
               recipeImage = {recipe.image}
               />

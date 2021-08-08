@@ -5,7 +5,7 @@ function SearchBar({recipeName, recipeImage}) {
     return (
         <div className="card">
             <link rel="stylesheet" href="./RecipeCard.css" />
-            <img src={recipeImage} alt={recipeName}/>
+            <img src={require(`../views/img/4_pastry.jpg`)} alt={recipeName}/>
             <div className="title-container">
                 <h4 className="title">{recipeName}</h4>
             </div>
