@@ -17,11 +17,13 @@ login.login_view = 'login'
 def searching():
     if request.method == "GET":
         recipes = RecipeModel.query.all()
-        result = {}
+        results = []
         for recipe in recipes:
-            print(recipe.name)
-            print(recipe.rid)
-        return jsonify(0)
+            result = {}
+            result["rid"] = recipe.rid
+            result["name"] = recipe.name
+            results.append(result)
+        return jsonify(results)
 @app.route('/add', methods = ['GET', 'POST'])
 def add_recipe():
     if request.method == "GET":
